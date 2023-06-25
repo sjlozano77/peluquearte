@@ -1,0 +1,7 @@
+.tabla__fila {
+    height: 3rem;
+}
+
+.tabla__fila--par {
+    background-color: var(--gray-scale-n2);
+}

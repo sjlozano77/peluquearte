@@ -30,11 +30,16 @@ require("conexion/conectar.php");
     <link rel="stylesheet" href="css/03.secciones/main-header.css">
     <link rel="stylesheet" href="css/03.secciones/main-header-titulo.css">
     <link rel="stylesheet" href="css/03.secciones/main-contenido.css">
+    <link rel="stylesheet" href="css/03.secciones/main-contenido-tabla.css">
     <!--componentes-->   
     <link rel="stylesheet" href="css/04.componentes/menu/menu.css">
     <link rel="stylesheet" href="css/04.componentes/menu/menu-list.css"> 
     <link rel="stylesheet" href="css/04.componentes/menu/menu-item.css"> 
-    <link rel="stylesheet" href="css/04.componentes/menu/menu-link.css"> 
+    <link rel="stylesheet" href="css/04.componentes/menu/menu-link.css">
+    <link rel="stylesheet" href="css/04.componentes/tabla/tabla.css"> 
+    <link rel="stylesheet" href="css/04.componentes/tabla/tabla-encabezado.css">
+    <link rel="stylesheet" href="css/04.componentes/tabla/tabla-fila.css">
+    <link rel="stylesheet" href="css/04.componentes/tabla/tabla-celda.css">
 
     <title>Peluquearte | Ver mis turnos</title>
 
@@ -54,30 +59,32 @@ require("conexion/conectar.php");
             <h2 class="main-header-titulo">Ver mis turnos</h2>
         </header>
         <section class="main-contenido">
-            <?php 
-                // Ejecutar la consulta de reservas
-                $sql = "SELECT * FROM reservas";
-                $resultado = mysqli_query($conexion, $sql) or die("Error al ejecutar la consulta");
+            <div class="main-contenido-tabla">
+                <?php 
+                    // Ejecutar la consulta de reservas
+                    $sql = "SELECT * FROM reservas";
+                    $resultado = mysqli_query($conexion, $sql) or die("Error al ejecutar la consulta");
 
-                // Mostrar la consulta en una tabla
-                echo "<table border='1'>";
-                echo "<tr><th>Id_Reserva</th><th>DNI</th><th>Nombre</th><th>Apellido</th><th>Dia</th><th>Estado</th><th>Id_empleado</th></tr>";
-                while ($fila = mysqli_fetch_assoc($resultado)) {
-                    echo "<tr>";
-                    echo "<td>" . $fila["Id_Reserva"] . "</td>";
-                    echo "<td>" . $fila["DNI"] . "</td>";
-                    echo "<td>" . $fila["Nombre"] . "</td>";
-                    echo "<td>" . $fila["Apellido"] . "</td>";
-                    echo "<td>" . $fila["Dia"] . "</td>";
-                    echo "<td>" . $fila["Estado"] . "</td>";
-                    echo "<td>" . $fila["Id_empleado"] . "</td>";
-                    echo "</tr>";
-                }
-                echo "</table>";
+                    // Mostrar la consulta en una tabla
+                    echo "<table class='tabla' border='1'>";
+                    echo "<tr class='tabla__encabezado'><th class='tabla__celda'>Id_Reserva</th><th class='tabla__celda'>DNI</th><th class='tabla__celda'>Nombre</th><th class='tabla__celda'>Apellido</th><th class='tabla__celda'>Dia</th><th class='tabla__celda'>Estado</th><th class='tabla__celda'>Id_empleado</th></tr>";
+                    while ($fila = mysqli_fetch_assoc($resultado)) {
+                        echo "<tr class='tabla__fila'>";
+                        echo "<td class='tabla__celda'>" . $fila["Id_Reserva"] . "</td>";
+                        echo "<td class='tabla__celda'>" . $fila["DNI"] . "</td>";
+                        echo "<td class='tabla__celda'>" . $fila["Nombre"] . "</td>";
+                        echo "<td class='tabla__celda'>" . $fila["Apellido"] . "</td>";
+                        echo "<td class='tabla__celda'>" . $fila["Dia"] . "</td>";
+                        echo "<td class='tabla__celda'>" . $fila["Estado"] . "</td>";
+                        echo "<td class='tabla__celda'>" . $fila["Id_empleado"] . "</td>";
+                        echo "</tr>";
+                    }
+                    echo "</table>";
 
-                // Cerrar la conexión
-                mysqli_close($conexion);
-            ?>
+                    // Cerrar la conexión
+                    mysqli_close($conexion);
+                ?>
+            </div>
         </section>
     </main>
     
