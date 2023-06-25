@@ -30,15 +30,7 @@ require("conexion/conectar.php");
     <link rel="stylesheet" href="css/03.secciones/main-header.css">
     <link rel="stylesheet" href="css/03.secciones/main-header-titulo.css">
     <link rel="stylesheet" href="css/03.secciones/main-contenido.css">
-    <!--componentes-->
-    <link rel="stylesheet" href="css/04.componentes/form/form.css">
-    <link rel="stylesheet" href="css/04.componentes/form/form-titulo.css">
-    <link rel="stylesheet" href="css/04.componentes/form/form-datos.css">
-    <link rel="stylesheet" href="css/04.componentes/form/form-input.css">
-    <link rel="stylesheet" href="css/04.componentes/form/form-label.css">
-    <link rel="stylesheet" href="css/04.componentes/form/form-botones.css">
-    <link rel="stylesheet" href="css/04.componentes/form/form-botones-boton.css">
-    <link rel="stylesheet" href="css/04.componentes/mensaje/mensaje-link.css">    
+    <!--componentes-->   
     <link rel="stylesheet" href="css/04.componentes/menu/menu.css">
     <link rel="stylesheet" href="css/04.componentes/menu/menu-list.css"> 
     <link rel="stylesheet" href="css/04.componentes/menu/menu-item.css"> 

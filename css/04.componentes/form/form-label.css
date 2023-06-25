@@ -2,3 +2,8 @@
     font-size: .9rem;
     margin: .5em 0;
 }
+
+.form__label--font-size-grande {
+    font-size: 1rem;
+    font-weight: 700;
+}

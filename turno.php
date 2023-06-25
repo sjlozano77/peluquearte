@@ -37,6 +37,7 @@ require("conexion/conectar.php");
     <link rel="stylesheet" href="css/04.componentes/form/form-datos.css">
     <link rel="stylesheet" href="css/04.componentes/form/form-input.css">
     <link rel="stylesheet" href="css/04.componentes/form/form-label.css">
+    <link rel="stylesheet" href="css/04.componentes/form/form-select.css">
     <link rel="stylesheet" href="css/04.componentes/form/form-botones.css">
     <link rel="stylesheet" href="css/04.componentes/form/form-botones-boton.css">
     <link rel="stylesheet" href="css/04.componentes/mensaje/mensaje-link.css">    
@@ -65,25 +66,25 @@ require("conexion/conectar.php");
         <section class="main-contenido">
             <form  class="main-form form" action="bdd/registrar_reserva.php" method="post" id="formulario" name="formulario" autocomplete="off">   
                 <section class="form__datos">
-                    <label>DNI</label>
-                    <input id="DNI" type="number" name="dni" autocomplete="off" >            
-                    <label>Nombre</label>
-                    <input id="nombre"type="text" name="nombre" autocomplete="off">
-                    <label>Apellido</label> 
-                    <input id="apellido"type="text" name="apellido" autocomplete="off" >   
-                    <label>Seleccionar fecha del turno: </label>
-                    <input type="date" name="calendario"  value="2023-07-22" min="2018-01-01" max="2025-12-31" id= "dia">
-                    <label>Hora:</label>
-                    <input type="time" id="hora" name="hora" value="11:45:00" max="19:30:00" min="10:00:00" step="1" >
-                    <label>Seleccionar estado: </label>
-                    <select id="estado" name="estado">
+                    <label class="form__label--font-size-grande">DNI</label>
+                    <input class="form__input" id="DNI" type="number" name="dni" autocomplete="off" >            
+                    <label class="form__label--font-size-grande">Nombre</label>
+                    <input class="form__input" id="nombre"type="text" name="nombre" autocomplete="off">
+                    <label class="form__label--font-size-grande">Apellido</label> 
+                    <input class="form__input" id="apellido"type="text" name="apellido" autocomplete="off" >   
+                    <label class="form__label--font-size-grande">Seleccionar fecha del turno: </label>
+                    <input class="form__input" type="date" name="calendario"  value="2023-07-22" min="2018-01-01" max="2025-12-31" id= "dia">
+                    <label class="form__label--font-size-grande">Hora:</label>
+                    <input class="form__input" type="time" id="hora" name="hora" value="11:45:00" max="19:30:00" min="10:00:00" step="1" >
+                    <label class="form__label--font-size-grande">Seleccionar estado: </label>
+                    <select class="form__select" id="estado" name="estado">
                         <option value="">Estado</option>
                         <option value="confirmado">confirmado</option>
                         <option value="reservado">reservado</option>
                         <option value="cancelado">cancelado</option>
                     </select>   
-                    <label>Seleccionar empleado: </label>
-                    <select name="Id_empleado" id="Id_empleado">
+                    <label class="form__label form__label--font-size-grande">Seleccionar empleado: </label>
+                    <select class="form__select" name="Id_empleado" id="Id_empleado">
                         <?php
                             // Hacer la consulta incluyendo el campo id_empleado
                             $result = mysqli_query($conexion, 'SELECT id_empleado, Nombre, Apellido FROM empleado');
@@ -104,7 +105,7 @@ require("conexion/conectar.php");
                     </select>           
                 </section>
                 <section class="form__botones">
-                    <input  class="form__botones__boton form__botones__boton--enviar" type="submit" value="Generar turno">             
+                    <input class="form__botones__boton form__botones__boton--enviar" type="submit" value="Generar turno">             
                 </section>
             </form>
 
