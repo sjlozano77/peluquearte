@@ -1,0 +1,15 @@
+.form__botones__boton {
+    font-size: .8rem;
+    margin-left: 1rem;
+    padding: .8em 1em;
+    border-radius: 0;
+    border: none;
+    background-color: var(--soft-red);
+    color: var(--white);
+    font-weight: 700;
+}
+
+.form__botones__boton:hover {
+    cursor: pointer;
+    background-color: var(--dark-red);
+}

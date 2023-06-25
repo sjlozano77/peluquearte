@@ -1,0 +1,6 @@
+.form {
+    min-width: 300px;
+    max-width: 500px;
+    width: 80%;
+    background-color: var(--gray-scale-n2);
+}

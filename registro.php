@@ -10,42 +10,26 @@
 </head>
 <body>
     <main>
-        <div class="registro-container">
-            <div class="titulo-container">
-                <h1>Registrarse</h1>
+        <form action="registrar.php" method="POST">
+            <h1>Registrarse</h1>
+            <div class="formulario__datos">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" name="apellido" required>
+                <label for="usuario">Usuario</label>
+                <input type="text" id="usuario" name="usuario" required>
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required>
             </div>
-            <div class="formulario-container">
-                <form action="registrar.php" method="POST">
-                    <div class="formulario__datos">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" required>
-                        <label for="apellido">Apellido</label>
-                        <input type="text" id="apellido" name="apellido" required>
-                        <label for="usuario">Usuario</label>
-                        <input type="text" id="usuario" name="usuario" required>
-                        <label for="password">Contraseña</label>
-                        <input type="password" id="password" name="password" required>
-                    </div>
-                    <div class="formulario__botones">
-                        <input class="botones boton-resetear" type="reset" value="Resetear">
-                        <input class="botones boton-enviar" type="submit">
-                    </div>
-                </form>
+            <div class="formulario__botones">
+                <input class="botones boton-resetear" type="reset" value="Resetear">
+                <input class="botones boton-enviar" type="submit">
             </div>
-        </div>
-        <div class="mensaje">
-            <p>
-                ¿Ya tiene una cuenta? Puede <a href="index.php">iniciar sesión aquí</a>
-            </p>
-            <p>
-                <?php
-                error_reporting(0);
-
-                echo $_GET['error'];
-
-                ?>
-            </p>
-        </div>
+        </form>
+        <p>
+            ¿Ya tiene una cuenta? Puede <a href="index.php">iniciar sesión aquí</a>
+        </p>
     </main>
 </body>
 </html>

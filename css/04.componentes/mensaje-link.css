@@ -1,0 +1,4 @@
+.mensaje__link:hover {
+    text-decoration: underline;
+    color: var(--dark-red);
+}
