@@ -17,14 +17,14 @@
     <link rel="stylesheet" href="css/02.base/general.css">
     <!--secciones--->
     <!--componentes-->
-    <link rel="stylesheet" href="css/04.componentes/form.css">
-    <link rel="stylesheet" href="css/04.componentes/form-titulo.css">
-    <link rel="stylesheet" href="css/04.componentes/form-datos.css">
-    <link rel="stylesheet" href="css/04.componentes/form-input.css">
-    <link rel="stylesheet" href="css/04.componentes/form-label.css">
-    <link rel="stylesheet" href="css/04.componentes/form-botones.css">
-    <link rel="stylesheet" href="css/04.componentes/form-botones-boton.css">
-    <link rel="stylesheet" href="css/04.componentes/mensaje-link.css">    
+    <link rel="stylesheet" href="css/04.componentes/form/form.css">
+    <link rel="stylesheet" href="css/04.componentes/form/form-titulo.css">
+    <link rel="stylesheet" href="css/04.componentes/form/form-datos.css">
+    <link rel="stylesheet" href="css/04.componentes/form/form-input.css">
+    <link rel="stylesheet" href="css/04.componentes/form/form-label.css">
+    <link rel="stylesheet" href="css/04.componentes/form/form-botones.css">
+    <link rel="stylesheet" href="css/04.componentes/form/form-botones-boton.css">
+    <link rel="stylesheet" href="css/04.componentes/mensaje/mensaje-link.css">   
     
     <title>Peluquería | Registrarse</title>
 </head>
@@ -44,7 +44,6 @@
             </div>
             <div class="form__botones">
                 <input class="form__botones__boton form__botones__boton--resetear" type="reset" value="Resetear">
-                <input class="form__botones__boton form__botones__boton--validar" type="button" value="validar">
                 <input class="form__botones__boton form__botones__boton--resetear" type="submit" value="Enviar">
             </div>
         </form>

@@ -38,5 +38,11 @@ a {
     text-decoration: none;
 }
 
+.body-sistema {
+    display: flex;
+    flex-direction: row;
+}
 
-
+ul {
+    padding-left: 0;
+}

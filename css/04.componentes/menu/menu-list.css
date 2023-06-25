@@ -1,0 +1,9 @@
+.menu__list {
+    list-style: none;
+    font-size: 1rem;
+    width: 100%;
+    color: var(--white);
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+}

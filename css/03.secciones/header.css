@@ -1,0 +1,12 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8em;
+    background-color: var(--dark-red);
+    color: var(--white);
+    width: 30%;
+    max-width: 300px;
+    min-width: 200px;
+}
