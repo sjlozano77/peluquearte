@@ -64,56 +64,48 @@ require("conexion/conectar.php");
         </header>
         <section class="main-contenido">
             <form  class="main-form form" action="bdd/registrar_reserva.php" method="post" id="formulario" name="formulario" autocomplete="off">   
-                <div>
+                <section class="form__datos">
                     <label>DNI</label>
                     <input id="DNI" type="number" name="dni" autocomplete="off" >            
-                </div>
-                <div>
                     <label>Nombre</label>
                     <input id="nombre"type="text" name="nombre" autocomplete="off">
-                </div>
-                <div>
                     <label>Apellido</label> 
                     <input id="apellido"type="text" name="apellido" autocomplete="off" >   
-                </div>
-                <div>
                     <label>Seleccionar fecha del turno: </label>
                     <input type="date" name="calendario"  value="2023-07-22" min="2018-01-01" max="2025-12-31" id= "dia">
                     <label>Hora:</label>
                     <input type="time" id="hora" name="hora" value="11:45:00" max="19:30:00" min="10:00:00" step="1" >
-                </div>
-                <div>
-                <label>Seleccionar estado: </label>
-                <select id="estado" name="estado">
-                    <option value="">Estado</option>
-                    <option value="confirmado">confirmado</option>
-                    <option value="reservado">reservado</option>
-                    <option value="cancelado">cancelado</option>
-                </select>   
-                </div>
-                <div>
+                    <label>Seleccionar estado: </label>
+                    <select id="estado" name="estado">
+                        <option value="">Estado</option>
+                        <option value="confirmado">confirmado</option>
+                        <option value="reservado">reservado</option>
+                        <option value="cancelado">cancelado</option>
+                    </select>   
                     <label>Seleccionar empleado: </label>
                     <select name="Id_empleado" id="Id_empleado">
                         <?php
-                        // Hacer la consulta incluyendo el campo id_empleado
-                        $result = mysqli_query($conexion, 'SELECT id_empleado, Nombre, Apellido FROM empleado');
+                            // Hacer la consulta incluyendo el campo id_empleado
+                            $result = mysqli_query($conexion, 'SELECT id_empleado, Nombre, Apellido FROM empleado');
 
-                        // Comprobar si la consulta tuvo éxito
-                        if ($result) {
-                        // Recorrer todas las filas del resultado
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            // Crear una opción con el valor del campo id_empleado y el texto del campo Nombre
-                            echo "<option value='" . $row["id_empleado"] . "'>" . $row["Nombre"] . " " . $row["Apellido"] . " " . "</option>";
-                            //echo "<option value='" . $row["id_empleado"] . "'>" . $row["Nombre"] . "</option>";
-                        }
-                        } else {
-                        // Mostrar un mensaje de error
-                        echo "Error al hacer la consulta: " . mysqli_error($conexion);
-                        }
-                        ?>
-                    </select>
-                </div>   
-                <input type="submit" value="enviar">     
+                            // Comprobar si la consulta tuvo éxito
+                            if ($result) {
+                            // Recorrer todas las filas del resultado
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                // Crear una opción con el valor del campo id_empleado y el texto del campo Nombre
+                                echo "<option value='" . $row["id_empleado"] . "'>" . $row["Nombre"] . " " . $row["Apellido"] . " " . "</option>";
+                                //echo "<option value='" . $row["id_empleado"] . "'>" . $row["Nombre"] . "</option>";
+                            }
+                            } else {
+                            // Mostrar un mensaje de error
+                            echo "Error al hacer la consulta: " . mysqli_error($conexion);
+                            }
+                        ?>        
+                    </select>           
+                </section>
+                <section class="form__botones">
+                    <input  class="form__botones__boton form__botones__boton--enviar" type="submit" value="Generar turno">             
+                </section>
             </form>
 
             <div id= "alerta">
