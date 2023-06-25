@@ -53,8 +53,8 @@ require("conexion/conectar.php");
         <h1 class="header-titulo">Peluquearte</h1>
         <nav class="menu">
             <ul class="menu__list">
-                <li class="menu__item"><a class="menu__link" href="#">Generar turnos</a></li>
-                <li class="menu__item"><a class="menu__link" href="#">Ver mis turnos</a></li>
+                <li class="menu__item"><a class="menu__link" href="turno.php">Generar turnos</a></li>
+                <li class="menu__item"><a class="menu__link" href="ver_mis_turnos.php">Ver mis turnos</a></li>
             </ul>
         </nav>
     </header>
