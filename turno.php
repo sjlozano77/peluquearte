@@ -79,11 +79,8 @@ require("conexion/conectar.php");
                     <label class="form__label--font-size-grande">Hora:</label>
                     <input class="form__input" type="time" id="hora" name="hora" value="11:45:00" max="19:30:00" min="10:00:00" step="1" >
                     <label class="form__label--font-size-grande">Seleccionar estado: </label>
-                    <select class="form__select" id="estado" name="estado">
-                        <option value="">Estado</option>
-                        <option value="confirmado">confirmado</option>
+                    <select class="form__select" id="estado" name="estado" disabled>
                         <option value="reservado">reservado</option>
-                        <option value="cancelado">cancelado</option>
                     </select>   
                     <label class="form__label form__label--font-size-grande">Seleccionar empleado: </label>
                     <select class="form__select" name="Id_empleado" id="Id_empleado">
