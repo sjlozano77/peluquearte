@@ -6,3 +6,13 @@
 .tabla__celda--negrita {
     font-weight: 700;
 }
+
+.tabla__celda--display-flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1.45rem;
+    padding-top: 1.45rem;
+    gap: .5rem;
+}

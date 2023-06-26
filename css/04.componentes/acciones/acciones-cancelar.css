@@ -1,0 +1,7 @@
+.acciones--cancelar {
+    background-color: var(--rojo-cancelado);
+}
+
+.acciones--cancelar:hover {
+    background-color: var(--rojo-cancelado-hover);
+}

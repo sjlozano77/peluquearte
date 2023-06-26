@@ -5,3 +5,7 @@
     justify-content: flex-start;
     flex-grow: 1;
 }
+
+.main-contenido-centrado {
+    align-items: center;
+}

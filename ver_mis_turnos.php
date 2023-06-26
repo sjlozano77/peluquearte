@@ -40,6 +40,10 @@ require("conexion/conectar.php");
     <link rel="stylesheet" href="css/04.componentes/tabla/tabla-encabezado.css">
     <link rel="stylesheet" href="css/04.componentes/tabla/tabla-fila.css">
     <link rel="stylesheet" href="css/04.componentes/tabla/tabla-celda.css">
+    <link rel="stylesheet" href="css/04.componentes/acciones/acciones.css">
+    <link rel="stylesheet" href="css/04.componentes/acciones/acciones-confirmar.css">
+    <link rel="stylesheet" href="css/04.componentes/acciones/acciones-cancelar.css">
+    <link rel="stylesheet" href="css/04.componentes/estado/estado.css">
 
     <title>Peluquearte | Ver mis turnos</title>
 
@@ -56,18 +60,18 @@ require("conexion/conectar.php");
     </header>
     <main class="main">
         <header class="main-header">
-            <h2 class="main-header-titulo">Ver mis turnos</h2>
+            <h2 class="main-header-titulo">Mis turnos</h2>
         </header>
         <section class="main-contenido">
             <div class="main-contenido-tabla">
                 <?php 
                     // Ejecutar la consulta de reservas
-                    $sql = "SELECT reservas.Id_Reserva, reservas.DNI, reservas.Nombre, reservas.Apellido, reservas.Dia, reservas.Hora, reservas.Estado, empleado.Nombre, empleado.Apellido FROM reservas inner join empleado on reservas.Id_empleado = empleado.Id_empleado";
+                    $sql = "SELECT reservas.Id_Reserva, reservas.DNI, reservas.Nombre, reservas.Apellido, reservas.Dia, reservas.Hora, empleado.Nombre, empleado.Apellido, reservas.Estado FROM reservas inner join empleado on reservas.Id_empleado = empleado.Id_empleado";
                     $resultado = mysqli_query($conexion, $sql) or die("Error al ejecutar la consulta");
 
                     // Mostrar la consulta en una tabla
                     echo "<table class='tabla' border='1'>";
-                    echo "<tr class='tabla__encabezado'><th class='tabla__celda'>Número de reserva</th><th class='tabla__celda'>DNI</th><th class='tabla__celda'>Nombre</th><th class='tabla__celda'>Apellido</th><th class='tabla__celda'>Dia</th><th class='tabla__celda'>Hora</th><th class='tabla__celda'>Estado</th><th class='tabla__celda'>Peluquero/a</th></tr>";
+                    echo "<tr class='tabla__encabezado'><th class='tabla__celda'>Reserva</th><th class='tabla__celda'>DNI</th><th class='tabla__celda'>Nombre</th><th class='tabla__celda'>Apellido</th><th class='tabla__celda'>Dia</th><th class='tabla__celda'>Hora</th><th class='tabla__celda'>Peluquero/a</th><th class='tabla__celda'>Estado</th><th class='tabla__celda'>Acciones</th></tr>";
                     $contador = 0;
                     while ($fila = mysqli_fetch_row($resultado)) {
                         if($contador % 2 == 0) {
@@ -78,8 +82,15 @@ require("conexion/conectar.php");
                             echo "<td class='tabla__celda'>" . $fila[3] . "</td>";
                             echo "<td class='tabla__celda'>" . $fila[4] . "</td>";
                             echo "<td class='tabla__celda'>" . $fila[5] . "</td>";
-                            echo "<td class='tabla__celda'>" . $fila[6] . "</td>";
-                            echo "<td class='tabla__celda'>" . $fila[7] . " " .  $fila[8] . "</td>";
+                            echo "<td class='tabla__celda'>" . $fila[6] . " " .  $fila[7] . "</td>";
+                            if($fila[8] == "Confirmado") {
+                                echo "<td class='tabla__celda'>" . "<div class='estado estado--confirmado'></div>"  . "</td>";
+                            } else if ($fila[8] == "reservado") {
+                                echo "<td class='tabla__celda'>" . "<div class='estado estado--reservado'></div>"  . "</td>";
+                            } else { //cancelado
+                                echo "<td class='tabla__celda'>" . "<div class='estado estado--cancelado'></div>" . "</td>";
+                            }
+                            echo "<td class='tabla__celda tabla__celda--display-flex-row'>" . "<form><button class='acciones acciones--confirmar' type='submit'><img src='assets/iconos/confirmar.svg'></button></form>" . "<form><button class='acciones acciones--cancelar' type='submit'><img src='assets/iconos/cancelar.svg'></button></form>". "</td>";
                             echo "</tr>";
                         } else {
                             echo "<tr class='tabla__fila tabla__fila--impar'>";
@@ -89,8 +100,15 @@ require("conexion/conectar.php");
                             echo "<td class='tabla__celda'>" . $fila[3] . "</td>";
                             echo "<td class='tabla__celda'>" . $fila[4] . "</td>";
                             echo "<td class='tabla__celda'>" . $fila[5] . "</td>";
-                            echo "<td class='tabla__celda'>" . $fila[6] . "</td>";
-                            echo "<td class='tabla__celda'>" . $fila[7] . " " .  $fila[8] . "</td>";
+                            echo "<td class='tabla__celda'>" . $fila[6] . " " .  $fila[7] . "</td>";
+                            if($fila[8] == "Confirmado") {
+                                echo "<td class='tabla__celda'>" . "<div class='estado estado--confirmado'></div>"  . "</td>";
+                            } else if ($fila[8] == "reservado") {
+                                echo "<td class='tabla__celda'>" . "<div class='estado estado--reservado'></div>"  . "</td>";
+                            } else { //cancelado
+                                echo "<td class='tabla__celda'>" . "<div class='estado estado--cancelado'></div>" . "</td>";
+                            }
+                            echo "<td class='tabla__celda tabla__celda--display-flex-row'>" . "<form><button class='acciones acciones--confirmar' type='submit'><img src='assets/iconos/confirmar.svg'></button></form>" . "<form><button class='acciones acciones--cancelar' type='submit'><img src='assets/iconos/cancelar.svg'></button></form>". "</td>";
                             echo "</tr>";
                         }
 

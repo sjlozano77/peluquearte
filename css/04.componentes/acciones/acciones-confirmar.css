@@ -1,0 +1,7 @@
+.acciones--confirmar {
+    background-color: var(--verde-confirmado);
+}
+
+.acciones--confirmar:hover {
+    background-color: var(--verde-confirmado-hover);
+}

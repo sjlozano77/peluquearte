@@ -65,7 +65,7 @@ require("conexion/conectar.php");
         <header class="main-header">
             <h2 class="main-header-titulo">Generar turnos</h2>
         </header>
-        <section class="main-contenido">
+        <section class="main-contenido main-contenido-centrado">
             <form  class="main-form form" action="bdd/registrar_reserva.php" method="post" id="formulario" name="formulario" autocomplete="off">   
                 <section class="form__datos">
                     <label class="form__label--font-size-grande">DNI</label>

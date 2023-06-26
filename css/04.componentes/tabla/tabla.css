@@ -3,4 +3,5 @@
     min-height: 100vh;
     border: none;
     background-color: var(--gray-scale-n3);
+    font-size: 1.2rem;
 }

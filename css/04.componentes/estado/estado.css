@@ -1,0 +1,20 @@
+.estado {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.estado--reservado {
+    background-color: var(--amarillo-reservado);
+}
+
+.estado--confirmado {
+    background-color: var(--verde-confirmado);
+}
+
+.estado--cancelado {
+    background-color: var(--rojo-cancelado);
+}
