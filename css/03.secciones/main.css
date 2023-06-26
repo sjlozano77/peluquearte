@@ -6,4 +6,5 @@
     flex-grow: 1;
     background-color: var(--gray-scale-n2);
     min-height: 100vh;
+    gap: 0;
 }
