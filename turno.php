@@ -44,7 +44,9 @@ require("conexion/conectar.php");
     <link rel="stylesheet" href="css/04.componentes/menu/menu.css">
     <link rel="stylesheet" href="css/04.componentes/menu/menu-list.css"> 
     <link rel="stylesheet" href="css/04.componentes/menu/menu-item.css"> 
-    <link rel="stylesheet" href="css/04.componentes/menu/menu-link.css"> 
+    <link rel="stylesheet" href="css/04.componentes/menu/menu-link.css">
+    <link rel="stylesheet" href="css/04.componentes/alerta/alerta.css">
+    <link rel="stylesheet" href="css/04.componentes/alerta/alerta-item.css"> 
 
     <title>Peluquearte | Generar turnos</title>
     
@@ -109,11 +111,11 @@ require("conexion/conectar.php");
                 </section>
             </form>
 
-            <div id= "alerta">
-                <p id = "dniMensaje"></p>
-                <p id = "nombreMensaje"></p>
-                <p id = "apellidoMensaje"></p>
-                <p id = "selectMensaje"></p> 
+            <div class="alerta" id = "alerta">
+                <p class="alerta__item" id = "dniMensaje"></p>
+                <p class="alerta__item" id = "nombreMensaje"></p>
+                <p class="alerta__item" id = "apellidoMensaje"></p>
+                <p class="alerta__item" id = "selectMensaje"></p> 
             </div>
         </section>
     </main>
