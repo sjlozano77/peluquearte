@@ -5,3 +5,7 @@
 .tabla__fila--par {
     background-color: var(--gray-scale-n2);
 }
+
+.tabla__fila--impar {
+    background-color: var(--gray-scale-n3);
+}

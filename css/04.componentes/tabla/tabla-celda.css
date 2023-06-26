@@ -2,3 +2,7 @@
     width: 8rem;
     text-align: center;
 }
+
+.tabla__celda--negrita {
+    font-weight: 700;
+}

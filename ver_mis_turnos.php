@@ -62,22 +62,39 @@ require("conexion/conectar.php");
             <div class="main-contenido-tabla">
                 <?php 
                     // Ejecutar la consulta de reservas
-                    $sql = "SELECT * FROM reservas";
+                    $sql = "SELECT reservas.Id_Reserva, reservas.DNI, reservas.Nombre, reservas.Apellido, reservas.Dia, reservas.Hora, reservas.Estado, empleado.Nombre, empleado.Apellido FROM reservas inner join empleado on reservas.Id_empleado = empleado.Id_empleado";
                     $resultado = mysqli_query($conexion, $sql) or die("Error al ejecutar la consulta");
 
                     // Mostrar la consulta en una tabla
                     echo "<table class='tabla' border='1'>";
-                    echo "<tr class='tabla__encabezado'><th class='tabla__celda'>Id_Reserva</th><th class='tabla__celda'>DNI</th><th class='tabla__celda'>Nombre</th><th class='tabla__celda'>Apellido</th><th class='tabla__celda'>Dia</th><th class='tabla__celda'>Estado</th><th class='tabla__celda'>Id_empleado</th></tr>";
-                    while ($fila = mysqli_fetch_assoc($resultado)) {
-                        echo "<tr class='tabla__fila'>";
-                        echo "<td class='tabla__celda'>" . $fila["Id_Reserva"] . "</td>";
-                        echo "<td class='tabla__celda'>" . $fila["DNI"] . "</td>";
-                        echo "<td class='tabla__celda'>" . $fila["Nombre"] . "</td>";
-                        echo "<td class='tabla__celda'>" . $fila["Apellido"] . "</td>";
-                        echo "<td class='tabla__celda'>" . $fila["Dia"] . "</td>";
-                        echo "<td class='tabla__celda'>" . $fila["Estado"] . "</td>";
-                        echo "<td class='tabla__celda'>" . $fila["Id_empleado"] . "</td>";
-                        echo "</tr>";
+                    echo "<tr class='tabla__encabezado'><th class='tabla__celda'>Número de reserva</th><th class='tabla__celda'>DNI</th><th class='tabla__celda'>Nombre</th><th class='tabla__celda'>Apellido</th><th class='tabla__celda'>Dia</th><th class='tabla__celda'>Hora</th><th class='tabla__celda'>Estado</th><th class='tabla__celda'>Peluquero/a</th></tr>";
+                    $contador = 0;
+                    while ($fila = mysqli_fetch_row($resultado)) {
+                        if($contador % 2 == 0) {
+                            echo "<tr class='tabla__fila tabla__fila--par'>";
+                            echo "<td class='tabla__celda tabla__celda--negrita'>" . $fila[0] . "</td>";
+                            echo "<td class='tabla__celda'>" . $fila[1] . "</td>";
+                            echo "<td class='tabla__celda'>" . $fila[2] . "</td>";
+                            echo "<td class='tabla__celda'>" . $fila[3] . "</td>";
+                            echo "<td class='tabla__celda'>" . $fila[4] . "</td>";
+                            echo "<td class='tabla__celda'>" . $fila[5] . "</td>";
+                            echo "<td class='tabla__celda'>" . $fila[6] . "</td>";
+                            echo "<td class='tabla__celda'>" . $fila[7] . " " .  $fila[8] . "</td>";
+                            echo "</tr>";
+                        } else {
+                            echo "<tr class='tabla__fila tabla__fila--impar'>";
+                            echo "<td class='tabla__celda tabla__celda--negrita'>" . $fila[0] . "</td>";
+                            echo "<td class='tabla__celda'>" . $fila[1] . "</td>";
+                            echo "<td class='tabla__celda'>" . $fila[2] . "</td>";
+                            echo "<td class='tabla__celda'>" . $fila[3] . "</td>";
+                            echo "<td class='tabla__celda'>" . $fila[4] . "</td>";
+                            echo "<td class='tabla__celda'>" . $fila[5] . "</td>";
+                            echo "<td class='tabla__celda'>" . $fila[6] . "</td>";
+                            echo "<td class='tabla__celda'>" . $fila[7] . " " .  $fila[8] . "</td>";
+                            echo "</tr>";
+                        }
+
+                        $contador++;
                     }
                     echo "</table>";
 
