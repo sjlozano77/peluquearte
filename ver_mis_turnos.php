@@ -44,6 +44,9 @@ require("conexion/conectar.php");
     <link rel="stylesheet" href="css/04.componentes/acciones/acciones-confirmar.css">
     <link rel="stylesheet" href="css/04.componentes/acciones/acciones-cancelar.css">
     <link rel="stylesheet" href="css/04.componentes/estado/estado.css">
+    <!--Utilidades-->
+    <link rel="stylesheet" href="css/05.utilidades/utilidades.css">
+    
 
     <title>Peluquearte | Ver mis turnos</title>
 
@@ -90,7 +93,7 @@ require("conexion/conectar.php");
                             } else { //cancelado
                                 echo "<td class='tabla__celda'>" . "<div class='estado estado--cancelado'></div>" . "</td>";
                             }
-                            echo "<td class='tabla__celda tabla__celda--display-flex-row'>" . "<form><button class='acciones acciones--confirmar' type='submit'><img src='assets/iconos/confirmar.svg'></button></form>" . "<form><button class='acciones acciones--cancelar' type='submit'><img src='assets/iconos/cancelar.svg'></button></form>". "</td>";
+                            echo "<td class='tabla__celda tabla__celda--display-flex-row'>" . "<form action='bdd/actualizar_estado_a_confirmado.php' method='get'><textarea class='oculto' name='id_reserva'>$fila[0]</textarea><button class='acciones acciones--confirmar' type='submit'><img src='assets/iconos/confirmar.svg'></button></form>" . "<form action='bdd/actualizar_estado_a_cancelado.php' method='get'><textarea class='oculto' name='id_reserva'>$fila[0]</textarea><button class='acciones acciones--cancelar' type='submit'><img src='assets/iconos/cancelar.svg'></button></form>". "</td>";
                             echo "</tr>";
                         } else {
                             echo "<tr class='tabla__fila tabla__fila--impar'>";
@@ -108,7 +111,7 @@ require("conexion/conectar.php");
                             } else { //cancelado
                                 echo "<td class='tabla__celda'>" . "<div class='estado estado--cancelado'></div>" . "</td>";
                             }
-                            echo "<td class='tabla__celda tabla__celda--display-flex-row'>" . "<form><button class='acciones acciones--confirmar' type='submit'><img src='assets/iconos/confirmar.svg'></button></form>" . "<form><button class='acciones acciones--cancelar' type='submit'><img src='assets/iconos/cancelar.svg'></button></form>". "</td>";
+                            echo "<td class='tabla__celda tabla__celda--display-flex-row'>" . "<form action='bdd/actualizar_estado_a_confirmado.php' method='get'><textarea class='oculto' name='id_reserva'>$fila[0]</textarea><button class='acciones acciones--confirmar' type='submit'><img src='assets/iconos/confirmar.svg'></button></form>" . "<form action='bdd/actualizar_estado_a_cancelado.php' method='get'><textarea class='oculto' name='id_reserva'>$fila[0]</textarea><button class='acciones acciones--cancelar' type='submit'><img src='assets/iconos/cancelar.svg'></button></form>". "</td>";
                             echo "</tr>";
                         }
 
