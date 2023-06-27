@@ -74,15 +74,14 @@ require("conexion/conectar.php");
 
                     // Mostrar la consulta en una tabla
                     echo "<table class='tabla' border='1'>";
-                    echo "<tr class='tabla__encabezado'><th class='tabla__celda'>Reserva</th><th class='tabla__celda'>DNI</th><th class='tabla__celda'>Nombre</th><th class='tabla__celda'>Apellido</th><th class='tabla__celda'>Dia</th><th class='tabla__celda'>Hora</th><th class='tabla__celda'>Peluquero/a</th><th class='tabla__celda'>Estado</th><th class='tabla__celda'>Acciones</th></tr>";
+                    echo "<tr class='tabla__encabezado'><th class='tabla__celda'>Reserva</th><th class='tabla__celda'>DNI</th><th class='tabla__celda'>Nombre</th><th class='tabla__celda'>Dia</th><th class='tabla__celda'>Hora</th><th class='tabla__celda'>Peluquero/a</th><th class='tabla__celda'>Estado</th><th class='tabla__celda'>Acciones</th></tr>";
                     $contador = 0;
                     while ($fila = mysqli_fetch_row($resultado)) {
                         if($contador % 2 == 0) {
                             echo "<tr class='tabla__fila tabla__fila--par'>";
                             echo "<td class='tabla__celda tabla__celda--negrita'>" . $fila[0] . "</td>";
                             echo "<td class='tabla__celda'>" . $fila[1] . "</td>";
-                            echo "<td class='tabla__celda'>" . $fila[2] . "</td>";
-                            echo "<td class='tabla__celda'>" . $fila[3] . "</td>";
+                            echo "<td class='tabla__celda'>" . $fila[2] . " " . $fila[3] . "</td>";
                             echo "<td class='tabla__celda'>" . $fila[4] . "</td>";
                             echo "<td class='tabla__celda'>" . $fila[5] . "</td>";
                             echo "<td class='tabla__celda'>" . $fila[6] . " " .  $fila[7] . "</td>";
@@ -99,8 +98,7 @@ require("conexion/conectar.php");
                             echo "<tr class='tabla__fila tabla__fila--impar'>";
                             echo "<td class='tabla__celda tabla__celda--negrita'>" . $fila[0] . "</td>";
                             echo "<td class='tabla__celda'>" . $fila[1] . "</td>";
-                            echo "<td class='tabla__celda'>" . $fila[2] . "</td>";
-                            echo "<td class='tabla__celda'>" . $fila[3] . "</td>";
+                            echo "<td class='tabla__celda'>" . $fila[2] . " " . $fila[3] . "</td>";
                             echo "<td class='tabla__celda'>" . $fila[4] . "</td>";
                             echo "<td class='tabla__celda'>" . $fila[5] . "</td>";
                             echo "<td class='tabla__celda'>" . $fila[6] . " " .  $fila[7] . "</td>";
