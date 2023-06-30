@@ -11,6 +11,32 @@ const nombreMensaje= document.getElementById('nombreMensaje');
 const apellidoMensaje= document.getElementById('apellidoMensaje');
 const selectMensaje = document.getElementById('selectMensaje');
 //const reservar = document.getElementById('reservar');
+const stars = document.querySelectorAll('.star');
+
+stars.forEach(function(star,index){
+	star.addEventListener('mousemove',function(){
+		for (let i = 0; i <= index; i++) {
+			stars[i].classList.add('checked');
+		}
+		for (let i = index+1; i < stars.length; i++) {
+			stars[i].classList.remove('checked');
+		}
+	})
+	star.addEventListener('click',function(){
+		console.log((index+1)*10/5);
+	})
+})
+/*
+stars.forEach(function(star,index){
+	star.addEventListener('mousemove',function(){
+		for (let i = 0; i <= index; i++) {
+			stars[i].classList.add('checked');
+		}
+		for (let i = index+1; i < stars.length; i++) {
+			stars[i].classList.remove('checked');
+		}
+	})
+})*/
 
 function validar(posicion) {
 	let TAM=4

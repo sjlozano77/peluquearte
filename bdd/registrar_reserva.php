@@ -9,7 +9,9 @@
     $estado = $_POST['estado'];
     $id_empleado = $_POST['Id_empleado'];
 
-    $sql_insert = "INSERT INTO reservas (DNI, Nombre, Apellido, dia, hora, Estado, Id_empleado ) VALUES ('$dni','$nombre','$apellido','$calendario', '$hora' ,'$estado' ,'$id_empleado')";
+	$resrvado = "Reservado";
+
+    $sql_insert = "INSERT INTO reservas (DNI, Nombre, Apellido, dia, hora, Estado, Id_empleado ) VALUES ('$dni','$nombre','$apellido','$calendario', '$hora' ,'$resrvado' ,'$id_empleado')";
     
     $insertar_reserva = mysqli_query($conexion, $sql_insert);
 
