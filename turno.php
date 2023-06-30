@@ -5,7 +5,10 @@ require("conexion/conectar.php");
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Peluquearte | Generar turno</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
     <!---------------------------Fuentes de Google Fonts------------------------------------->
@@ -26,7 +29,6 @@ require("conexion/conectar.php");
     <link rel="stylesheet" href="css/02.base/general.css">
     <!--secciones--->
     <link rel="stylesheet" href="css/03.secciones/header.css">    
-    <link rel="stylesheet" href="css/03.secciones/header-titulo.css">
     <link rel="stylesheet" href="css/03.secciones/main.css">
     <link rel="stylesheet" href="css/03.secciones/main-header.css">
     <link rel="stylesheet" href="css/03.secciones/main-header-titulo.css">
@@ -40,24 +42,31 @@ require("conexion/conectar.php");
     <link rel="stylesheet" href="css/04.componentes/form/form-select.css">
     <link rel="stylesheet" href="css/04.componentes/form/form-botones.css">
     <link rel="stylesheet" href="css/04.componentes/form/form-botones-boton.css">
-    <link rel="stylesheet" href="css/04.componentes/mensaje/mensaje-link.css">    
+    <link rel="stylesheet" href="css/04.componentes/mensaje/mensaje-link.css"> 
+    <link rel="stylesheet" href="css/04.componentes/menu-hamburguesa/menu-hamburguesa.css">
+    <link rel="stylesheet" href="css/04.componentes/logo/logo.css"> 
+    <link rel="stylesheet" href="css/04.componentes/logo/logo-titulo.css">
+    <link rel="stylesheet" href="css/04.componentes/logo/logo-icon.css">    
     <link rel="stylesheet" href="css/04.componentes/menu/menu.css">
     <link rel="stylesheet" href="css/04.componentes/menu/menu-list.css"> 
     <link rel="stylesheet" href="css/04.componentes/menu/menu-item.css"> 
     <link rel="stylesheet" href="css/04.componentes/menu/menu-link.css">
+    <link rel="stylesheet" href="css/04.componentes/menu/menu-icon.css">
     <link rel="stylesheet" href="css/04.componentes/alerta/alerta.css">
     <link rel="stylesheet" href="css/04.componentes/alerta/alerta-item.css"> 
-
-    <title>Peluquearte | Generar turnos</title>
     
 </head>
-<body class="body-sistema">
-    <header class=header>
-        <h1 class="header-titulo">Peluquearte</h1>
+<body>
+    <header id="header" class="header">
+        <img id='toggle-menu' class="menuhamburguesa" src="assets/iconos/menu-icon.svg">
+        <div class="logo">
+            <p class="logo__icon">p</p>
+            <h1 class="logo__titulo">Peluquearte</h1>
+        </div>
         <nav class="menu">
             <ul class="menu__list">
-                <li class="menu__item"><a class="menu__link" href="turno.php">Generar turnos</a></li>
-                <li class="menu__item"><a class="menu__link" href="ver_mis_turnos.php">Ver mis turnos</a></li>
+                <li class="menu__item"><a class="menu__link" href="turno.php"><img class="menu__icon" src="assets/iconos/turno-icon.svg">Generar turnos</a></li>
+                <li class="menu__item"><a class="menu__link" href="ver_mis_turnos.php"><img class="menu__icon menu__icon--ver" src="assets/iconos/ver-icon.svg">Ver mis turnos</a></li>
             </ul>
         </nav>
     </header>
@@ -118,5 +127,6 @@ require("conexion/conectar.php");
     </main>
 
     <script type="text/javascript" src="js/formulario.js"></script>
+    <script type="text/javascript" src="js/toggle-menu.js"></script>
 </body>
 </html>

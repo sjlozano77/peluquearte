@@ -20,6 +20,11 @@ body, main {
     padding: 0;
 }
 
+body {
+    background-color: var(--gray-scale-n4);
+
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -36,11 +41,6 @@ h1 {
 a {
     color: var(--soft-red);
     text-decoration: none;
-}
-
-.body-sistema {
-    display: flex;
-    flex-direction: row;
 }
 
 ul {

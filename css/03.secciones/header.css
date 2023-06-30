@@ -1,4 +1,5 @@
 .header {
+    position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -6,8 +7,29 @@
     gap: 8em;
     background-color: var(--dark-red);
     color: var(--white);
-    width: 30%;
-    max-width: 300px;
-    min-width: 200px;
+    width: 350px;
     min-height: 100vh;
+    height: auto;
+    transform: translateX(-350px);
+}
+
+.header--show {
+    transform: translateX(0px);
+    width: 100vw;
+}
+
+.header--show #toggle-menu {
+    transform: translateX(-350px);
+}
+
+@media screen and (min-width: 768px){
+    .header {
+        transform: translateX(-300px);
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .header {
+        transform: translateX(0px);
+    }
 }
