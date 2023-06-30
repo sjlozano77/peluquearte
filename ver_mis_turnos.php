@@ -83,7 +83,7 @@ require("conexion/conectar.php");
                     $resultado = mysqli_query($conexion, $sql) or die("Error al ejecutar la consulta");
 
                     // Mostrar la consulta en una tabla
-                    echo "<table class='tabla' border='1'>";
+                    echo "<table class='tabla'>";
                     echo "<tr class='tabla__encabezado'><th class='tabla__celda'>Reserva</th><th class='tabla__celda'>DNI</th><th class='tabla__celda'>Nombre</th><th class='tabla__celda'>Dia</th><th class='tabla__celda'>Hora</th><th class='tabla__celda'>Peluquero/a</th><th class='tabla__celda'>Estado</th><th class='tabla__celda'>Acciones</th></tr>";
                     $contador = 0;
                     while ($fila = mysqli_fetch_row($resultado)) {

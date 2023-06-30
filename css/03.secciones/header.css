@@ -8,9 +8,9 @@
     background-color: var(--dark-red);
     color: var(--white);
     width: 350px;
-    min-height: 100vh;
-    height: auto;
+    height: 100%;
     transform: translateX(-350px);
+    z-index: 20;
 }
 
 .header--show {
