@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!---------------------------Fuentes de Google Fonts------------------------------------->
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">    
@@ -19,7 +18,6 @@
     <link rel="stylesheet" href="css/02.base/general.css">
     <!--secciones--->
     <!--componentes-->
-    <!---->
     <link rel="stylesheet" href="css/04.componentes/form/form.css">
     <link rel="stylesheet" href="css/04.componentes/form/form-titulo.css">
     <link rel="stylesheet" href="css/04.componentes/form/form-datos.css">
