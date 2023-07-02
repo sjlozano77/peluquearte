@@ -14,9 +14,9 @@
     $insertar_reserva = mysqli_query($conexion, $sql_insert);
 
     if($insertar_reserva) {
-        header("location:../turno.php?Su turno se ha registrado exitosamente");
+        header("location:../turno.php?msj=ok");
     } else {
-        header("location:../turno.php?error=Hubo un problema al intentar registrar el turno. Reintente por favor");
+        header("location:../turno.php?msj=error");
     }
 
 ?>

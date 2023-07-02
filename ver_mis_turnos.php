@@ -68,6 +68,7 @@ require("conexion/conectar.php");
             <ul class="menu__list">
                 <li class="menu__item"><a class="menu__link" href="turno.php"><img class="menu__icon" src="assets/iconos/turno-icon.svg">Generar turnos</a></li>
                 <li class="menu__item"><a class="menu__link" href="ver_mis_turnos.php"><img class="menu__icon menu__icon--ver" src="assets/iconos/ver-icon.svg">Ver mis turnos</a></li>
+                <li class="menu__item"><a class="menu__link" href="registro_peluquero.php"><img class="menu__icon menu__icon--ver" src="assets/iconos/ver-icon.svg">REGISTRAR PELUQUERO</a></li>
             </ul>
         </nav>
     </header>

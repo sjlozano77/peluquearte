@@ -30,7 +30,7 @@
 </head>
 <body>
     <main>
-        <form class="form" action="registrar_empleado.php" method="POST">
+        <form class="form" id="Empleado" action="bdd/registrar_empleado.php" method="POST">
             <h1 class="form__titulo">Registrarse</h1>
             <div class="form__datos">
                 <label class="form__label" for="nombre">Nombre</label>
@@ -50,6 +50,14 @@
         <p class="mensaje">
             ¿Ya tiene una cuenta? Puede <a class="mensaje__link" href="index.php">iniciar sesión aquí</a>
         </p>
+        <?php
+            error_reporting(0);
+            $valor = $_GET['msj'];
+            echo "<p class='opcionAlert' style='visibility: hidden' >". $valor . "</p>";
+        ?>
     </main>
+    <script type="text/javascript" src="js/formulario.js"></script>
+    <script type="text/javascript" src="js/toggle-menu.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
