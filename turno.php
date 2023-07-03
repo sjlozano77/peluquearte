@@ -67,6 +67,7 @@ require("conexion/conectar.php");
             <ul class="menu__list">
                 <li class="menu__item"><a class="menu__link" href="turno.php"><img class="menu__icon" src="assets/iconos/turno-icon.svg">Generar turnos</a></li>
                 <li class="menu__item"><a class="menu__link" href="ver_mis_turnos.php"><img class="menu__icon menu__icon--ver" src="assets/iconos/ver-icon.svg">Ver mis turnos</a></li>
+                <li class="menu__item"><a class="menu__link" href="registro_peluquero.php"><img class="menu__icon menu__icon--ver" src="assets/iconos/ver-icon.svg">REGISTRAR PELUQUERO</a></li>
             </ul>
         </nav>
     </header>
@@ -75,7 +76,7 @@ require("conexion/conectar.php");
             <h2 class="main-header-titulo">Generar turnos</h2>
         </header>
         <section class="main-contenido main-contenido-centrado">
-            <form  class="main-form form" action="bdd/registrar_reserva.php" method="post" id="formulario" name="formulario" autocomplete="off">   
+            <form  class="main-form form" action="bdd/registrar_reserva.php" method="post" id="Turno" name="formulario" autocomplete="off">   
                 <section class="form__datos">
                     <label class="form__label--font-size-grande">DNI</label>
                     <input class="form__input" id="DNI" type="number" name="dni" autocomplete="off" >            
@@ -110,6 +111,7 @@ require("conexion/conectar.php");
                             echo "Error al hacer la consulta: " . mysqli_error($conexion);
                             }
                         ?>        
+                        
                     </select>           
                 </section>
                 <section class="form__botones">
@@ -126,7 +128,13 @@ require("conexion/conectar.php");
         </section>
     </main>
 
+    <?php
+        error_reporting(0);
+        $valor = $_GET['msj'];
+        echo "<p class='opcionAlert' style='visibility: hidden' >". $valor . "</p>";
+    ?>
     <script type="text/javascript" src="js/formulario.js"></script>
     <script type="text/javascript" src="js/toggle-menu.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

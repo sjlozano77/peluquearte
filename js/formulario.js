@@ -1,4 +1,4 @@
-const form = document.getElementById('formulario');
+const form = document.querySelector('.form');
 const DNI = document.getElementById('DNI');
 const nombre = document.getElementById('nombre');
 const apellido = document.getElementById('apellido');
@@ -11,6 +11,95 @@ const nombreMensaje= document.getElementById('nombreMensaje');
 const apellidoMensaje= document.getElementById('apellidoMensaje');
 const selectMensaje = document.getElementById('selectMensaje');
 //const reservar = document.getElementById('reservar');
+
+//EL CRI
+const opcionAlert = document.querySelector('.opcionAlert'); 
+const stars = document.querySelectorAll('.star');
+const formulario = document.querySelector('form');
+
+//VARIABLES
+let error_consulta_comun_1 = "Ya existe ese " + formulario.id.toLowerCase() + " en nuestra base de datos";
+let error_consulta_comun_2 = "Reintente otra vez.";
+let error_clave_duplicada = error_consulta_comun_1   + " con ese DNI. " + error_consulta_comun_2 ;
+let error_user_duplicado = error_consulta_comun_1   +  " con ese nombre de usuario. " + error_consulta_comun_2;
+
+let eror_insert = "Error al itentar registrar un " + formulario.id.toLowerCase() + ". Intente más tarde."; 
+
+console.log("id: " + formulario.id);
+/*console.log(opcionAlert.innerHTML);*/
+
+console.log(window.location.pathname);
+window.addEventListener('load', (event) => {
+   if (opcionAlert.innerHTML == "ok") {
+		opcionAlert.innerHTML = "sigue";
+		caminoFeliz();           		 
+   }
+   else if (opcionAlert.innerHTML == "error0") {
+		opcionAlert.innerHTML = "sigue";
+		caminoTriste(error_clave_duplicada);           		 
+   }      
+   else if (opcionAlert.innerHTML == "error1") {
+		opcionAlert.innerHTML = "sigue";
+		caminoTriste(eror_insert);           		 
+   }      
+   else if (opcionAlert.innerHTML == "error2") {
+		opcionAlert.innerHTML = "sigue";
+		caminoTriste(error_user_duplicado);           		 
+   }       
+});
+
+function caminoFeliz(){
+  Swal.fire({
+      icon: "success",
+      
+      /*html: `<h1>formulario.id registrado exitosamente!!!</h1>`,*/
+      title: formulario.id + " registrado exitosamente!!!",
+      confirmButtonText: "Continuar",
+  }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = window.location.pathname;
+          }
+   });
+}
+
+function caminoTriste(msj_error){
+  Swal.fire({
+      icon: "error",
+      
+      //title: "Ya existe un " + formulario.id.toLowerCase() + " con ese DNI. Reintente otra vez ",
+      title: msj_error,
+      confirmButtonText: "Continuar",
+  }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = window.location.pathname;
+          }
+   });
+}
+
+stars.forEach(function(star,index){
+	star.addEventListener('mousemove',function(){
+		for (let i = 0; i <= index; i++) {
+			stars[i].classList.add('checked');
+		}
+		for (let i = index+1; i < stars.length; i++) {
+			stars[i].classList.remove('checked');
+		}
+	})
+	star.addEventListener('click',function(){
+		console.log((index+1)*10/5);
+	})
+})
+/*
+stars.forEach(function(star,index){
+	star.addEventListener('mousemove',function(){
+		for (let i = 0; i <= index; i++) {
+			stars[i].classList.add('checked');
+		}
+		for (let i = index+1; i < stars.length; i++) {
+			stars[i].classList.remove('checked');
+		}
+	})
+})*/
 
 function validar(posicion) {
 	let TAM=4
