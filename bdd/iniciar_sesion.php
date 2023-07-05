@@ -13,6 +13,9 @@ $consulta_usuario = mysqli_query($conexion, $sql_usuario);
 
 
 if($consulta_usuario) {
+	/*session_start();
+	$_SESSION['usuario']="x";*/
+	setcookie("USUARIO",$usuario, time()+3600,"/peluquearte/");
     header("location:../turno.php"); 
 } else {
     header("location:index.html?error=Verifique sus datos");
