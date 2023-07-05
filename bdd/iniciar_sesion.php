@@ -13,8 +13,8 @@ $consulta_usuario = mysqli_query($conexion, $sql_usuario);
 
 
 if($consulta_usuario) {
-	/*session_start();
-	$_SESSION['usuario']="x";*/
+	session_start();
+	$_SESSION['nombre']="x";
 	setcookie("USUARIO",$usuario, time()+3600,"/peluquearte/");
     header("location:../turno.php"); 
 } else {

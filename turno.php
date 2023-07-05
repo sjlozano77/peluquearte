@@ -1,7 +1,13 @@
 <?php
 require("conexion/conectar.php");
 ?>
+<?php
+// Iniciar la sesión
+session_start();
 
+// Verificar si el usuario ha iniciado sesión
+if (isset($_SESSION['nombre'])) {
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,10 +71,11 @@ require("conexion/conectar.php");
         </div>
         <nav class="menu">
             <ul class="menu__list">
-                <li><?php echo "<p>Bienvenido " .$_COOKIE['USUARIO']."</p>";  ?> </li>
+                <li class="menu__item"><?php echo "<p>Bienvenido " .$_COOKIE['USUARIO']."</p>";  ?> </li>
                 <li class="menu__item"><a class="menu__link" href="turno.php"><img class="menu__icon" src="assets/iconos/turno-icon.svg">Generar turnos</a></li>
                 <li class="menu__item"><a class="menu__link" href="ver_mis_turnos.php"><img class="menu__icon menu__icon--ver" src="assets/iconos/ver-icon.svg">Ver mis turnos</a></li>
                 <li class="menu__item"><a class="menu__link" href="registro_peluquero.php"><img class="menu__icon menu__icon--ver" src="assets/iconos/ver-icon.svg">REGISTRAR PELUQUERO</a></li>
+                <li class="menu__item"><a class="menu__link" href="cerrar_sesion.php">CERRAR SESION</a></li>
             </ul>
         </nav>
     </header>
@@ -139,3 +146,9 @@ require("conexion/conectar.php");
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
+<?php 
+} else {
+    header("Location: index.php");
+    exit();
+}
+?>
