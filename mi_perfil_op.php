@@ -11,7 +11,7 @@ if (isset($_SESSION['nombre'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Peluquearte | Generar turno</title>
+    <title>Peluquearte | Mis datos</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -72,77 +72,66 @@ if (isset($_SESSION['nombre'])) {
         <nav class="menu">
             <ul class="menu__list">
                 <li class="menu__item"><?php echo "<p>Bienvenido " .$_COOKIE['USUARIO']."</p>";  ?> </li>
-                <li class="menu__item"><a class="menu__link" href="mi_perfil_op.php">Ver mi Perfil</a></li>
+                <li class="menu__item"><a class="menu__link" href="operador/mi_perfil_op.php">Ver mi Perfil</a></li>
                 <li class="menu__item"><a class="menu__link" href="turno.php"><img class="menu__icon" src="assets/iconos/turno-icon.svg">Generar turnos</a></li>
                 <li class="menu__item"><a class="menu__link" href="ver_mis_turnos.php"><img class="menu__icon menu__icon--ver" src="assets/iconos/ver-icon.svg">Ver mis turnos</a></li>
-                <li class="menu__item"><a class="menu__link" href="registro_peluquero.php"><img class="menu__icon menu__icon--ver" src="assets/iconos/ver-icon.svg">REGISTRAR PELUQUERO</a></li>
                 <li class="menu__item"><a class="menu__link" href="cerrar_sesion.php">CERRAR SESION</a></li>
             </ul>
         </nav>
     </header>
     <main class="main">
         <header class="main-header">
-            <h2 class="main-header-titulo">Generar turnos</h2>
+            <h2 class="main-header-titulo">Mis Datos</h2>
         </header>
         <section class="main-contenido main-contenido-centrado">
-            <form  class="main-form form" action="bdd/registrar_reserva.php" method="post" id="Turno" name="formulario" autocomplete="off">   
-                <section class="form__datos">
-                    <label class="form__label--font-size-grande">DNI</label>
-                    <input class="form__input" id="DNI" type="number" name="dni" autocomplete="off" >            
-                    <label class="form__label--font-size-grande">Nombre</label>
-                    <input class="form__input" id="nombre"type="text" name="nombre" autocomplete="off">
-                    <label class="form__label--font-size-grande">Apellido</label> 
-                    <input class="form__input" id="apellido"type="text" name="apellido" autocomplete="off" >   
-                    <label class="form__label--font-size-grande">Seleccionar fecha del turno: </label>
-                    <input class="form__input" type="date" name="calendario"  value="2023-07-22" min="2018-01-01" max="2025-12-31" id= "dia">
-                    <label class="form__label--font-size-grande">Hora:</label>
-                    <input class="form__input" type="time" id="hora" name="hora" value="11:45:00" max="19:30:00" min="10:00:00" step="1" >
-                    <label class="form__label--font-size-grande">Seleccionar estado: </label>
-                    <select class="form__select" id="estado" name="estado" disabled>
-                        <option value="reservado">reservado</option>
-                    </select>   
-                    <label class="form__label form__label--font-size-grande">Seleccionar empleado: </label>
-                    <select class="form__select" name="Id_empleado" id="Id_empleado">
-                        <?php
-                            // Hacer la consulta incluyendo el campo id_empleado
-                            $result = mysqli_query($conexion, 'SELECT id_empleado, Nombre, Apellido FROM empleado');
+            <input type="submit" value="Modificar" onclick="activarInput()"> 
+            <form  class="main-form form" action="bdd/actualizar_datos_op.php" method="POST" autocomplete="off">   
+                <section class="form__datos" >
+                    <section class="form__botones">
+                                
+                </section>
 
-                            // Comprobar si la consulta tuvo éxito
-                            if ($result) {
-                            // Recorrer todas las filas del resultado
+                    <?php  
+                    $usuario= $_COOKIE['USUARIO'];
+                    $result = mysqli_query($conexion, "SELECT DNI, Nombre, Apellido, Usuario, Contraseña, n.descripcion as nivel FROM usuario as u left join nivel as n on u.Id_nivel= n.id WHERE Usuario = '$usuario'");
+                    if ($result) {
                             while ($row = mysqli_fetch_assoc($result)) {
-                                // Crear una opción con el valor del campo id_empleado y el texto del campo Nombre
-                                echo "<option value='" . $row["id_empleado"] . "'>" . $row["Nombre"] . " " . $row["Apellido"] . " " . "</option>";
-                                //echo "<option value='" . $row["id_empleado"] . "'>" . $row["Nombre"] . "</option>";
-                            }
-                            } else {
-                            // Mostrar un mensaje de error
+                                $dni = $row['DNI'];
+                                $nom = $row['Nombre'];
+                                $ape =$row['Apellido'];
+                                $usuario = $row['Usuario'];
+                                $contra = $row['Contraseña'];
+                                $nivel = $row['nivel'];
+                    ?>
+                    <label class="form__label--font-size-grande">DNI </label>
+                     <label ><?php echo $dni?></label>   
+                    <label class="form__label--font-size-grande">Nombre</label>
+                    <input class="form__input" id="input"type="text" name="nombre" autocomplete="off" value="<?php echo $nom ; ?>" disabled >
+                    <label class="form__label--font-size-grande">Apellido</label> 
+                    <input class="form__input" id="input"type="text" name="apellido" autocomplete="off" disabled value="<?php echo $ape ; ?>" >   
+                    <label class="form__label--font-size-grande">Usuario </label>
+                    <input class="form__input" id="input"type="text" name="usuario" autocomplete="off" value= "<?php echo $usuario;  ?>" disabled>   
+                    <label class="form__label--font-size-grande">Contraseña</label>
+                    <input class="form__input" id="input"type="text" name="contraseña" autocomplete="off" disabled value="<?php echo $contra; ?>">   
+                    <label class="form__label--font-size-grande">Nivel</label>
+                    <select class="form__select" name="nivel" disabled>
+                        <option value="<?php echo $nivel; ?>"><?php echo $nivel; ?></option>
+                            <?php
+                            }} else {
                             echo "Error al hacer la consulta: " . mysqli_error($conexion);
                             }
-                        ?>        
-                        
-                    </select>           
+                            ?> 
+                             
+                    
+                    </select>                      
                 </section>
                 <section class="form__botones">
-                    <input class="form__botones__boton form__botones__boton--enviar" type="submit" value="Generar turno">             
+                    <input class="form__botones__boton form__botones__boton--enviar" type="submit" value="Enviar">             
                 </section>
             </form>
-
-            <div class="alerta" id = "alerta">
-                <p class="alerta__item" id = "dniMensaje"></p>
-                <p class="alerta__item" id = "nombreMensaje"></p>
-                <p class="alerta__item" id = "apellidoMensaje"></p>
-                <p class="alerta__item" id = "selectMensaje"></p> 
-            </div>
         </section>
     </main>
-
-    <?php
-        error_reporting(0);
-        $valor = $_GET['msj'];
-        echo "<p class='opcionAlert' style='visibility: hidden' >". $valor . "</p>";
-    ?>
-    <script type="text/javascript" src="js/formulario.js"></script>
+    <script type="text/javascript" src="js/modificar.js"></script>
     <script type="text/javascript" src="js/toggle-menu.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
