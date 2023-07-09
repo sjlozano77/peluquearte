@@ -7,7 +7,7 @@ $usuario = $_POST['usuario'];
 $password = $_POST['password'];
 
 
-$sql_usuario = "SELECT Usuario FROM empleado WHERE Usuario = '$usuario' and contraseña='$password';";
+$sql_usuario = "SELECT Usuario FROM usuario WHERE Usuario = '$usuario' and contraseña='$password';";
 
 $consulta_usuario = mysqli_query($conexion, $sql_usuario);
 
