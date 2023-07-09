@@ -1,3 +1,42 @@
 .menu {
-    width: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 350px;
+    height: 100vh;
+    margin-top: 8vh;
+    background-color: #333;
+    padding-top: 3em;
+    color: var(--white);
+    transition: transform 1s;
+    transform: translateX(-350px);
 }
+
+.menu--show {
+    transform: translateX(0px);
+    width: 100vw;
+}
+
+@media screen and (min-width: 768px) {
+    .menu {
+        width: 350px;
+        transform: translateX(-250px);
+    }
+    
+    .menu--show {
+        transform: translateX(-350px);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .menu {
+        transform: translateX(0px);
+    }
+
+    .menu--show {
+        transform: translateX(-350px);
+    }
+}
+

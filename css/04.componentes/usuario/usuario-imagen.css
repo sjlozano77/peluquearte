@@ -1,0 +1,10 @@
+.usuario__imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #333;
+    margin-right: .5em;
+}

@@ -1,21 +1,9 @@
 .menuhamburguesa {
-    position: absolute;
-    left: 360px;
-    top: 8px;
-    display: block;
-    background-color: var(--soft-red);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    padding: .5rem;
+    margin-right: 1.5em;
     cursor: pointer;
 }
 
-@media screen and (min-width: 768px){
-    .menuhamburguesa {
-        display: none;
-    }
-}
+
 
 
 

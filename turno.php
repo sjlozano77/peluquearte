@@ -40,6 +40,9 @@ if (isset($_SESSION['nombre'])) {
     <link rel="stylesheet" href="css/03.secciones/main-header-titulo.css">
     <link rel="stylesheet" href="css/03.secciones/main-contenido.css">
     <!--componentes-->
+    <link rel="stylesheet" href="css/04.componentes/usuario/usuario.css">
+    <link rel="stylesheet" href="css/04.componentes/usuario/usuario-imagen.css">
+    <link rel="stylesheet" href="css/04.componentes/usuario/usuario-nombre.css">
     <link rel="stylesheet" href="css/04.componentes/form/form.css">
     <link rel="stylesheet" href="css/04.componentes/form/form-titulo.css">
     <link rel="stylesheet" href="css/04.componentes/form/form-datos.css">
@@ -51,8 +54,6 @@ if (isset($_SESSION['nombre'])) {
     <link rel="stylesheet" href="css/04.componentes/mensaje/mensaje-link.css"> 
     <link rel="stylesheet" href="css/04.componentes/menu-hamburguesa/menu-hamburguesa.css">
     <link rel="stylesheet" href="css/04.componentes/logo/logo.css"> 
-    <link rel="stylesheet" href="css/04.componentes/logo/logo-titulo.css">
-    <link rel="stylesheet" href="css/04.componentes/logo/logo-icon.css">    
     <link rel="stylesheet" href="css/04.componentes/menu/menu.css">
     <link rel="stylesheet" href="css/04.componentes/menu/menu-list.css"> 
     <link rel="stylesheet" href="css/04.componentes/menu/menu-item.css"> 
@@ -61,13 +62,18 @@ if (isset($_SESSION['nombre'])) {
     <link rel="stylesheet" href="css/04.componentes/alerta/alerta.css">
     <link rel="stylesheet" href="css/04.componentes/alerta/alerta-item.css"> 
     
+    <link rel="shortcut icon" href="#">
+
 </head>
 <body>
-    <header id="header" class="header">
-        <img id='toggle-menu' class="menuhamburguesa" src="assets/iconos/menu-icon.svg">
-        <div class="logo">
-            <p class="logo__icon">p</p>
-            <h1 class="logo__titulo">Peluquearte</h1>
+    <header class="header">
+        <div class="flex-izquierda">
+            <img id='toggle-menu' class="menuhamburguesa" src="assets/iconos/menu-icon.svg">
+            <h1 class="logo">Peluquearte</h1>
+        </div>
+        <div class="usuario">
+            <div class="usuario__imagen"><img src="assets/imagenes/user.svg" alt="usuario-imagen"></div>
+            <p class=usuario__nombre>Federico Ramón</p>
         </div>
         <nav class="menu">
             <ul class="menu__list">
@@ -90,9 +96,9 @@ if (isset($_SESSION['nombre'])) {
                     <label class="form__label--font-size-grande">DNI</label>
                     <input class="form__input" id="DNI" type="number" name="dni" autocomplete="off" >            
                     <label class="form__label--font-size-grande">Nombre</label>
-                    <input class="form__input" id="nombre"type="text" name="nombre" autocomplete="off">
+                    <input class="form__input" id="nombre" type="text" name="nombre" autocomplete="off">
                     <label class="form__label--font-size-grande">Apellido</label> 
-                    <input class="form__input" id="apellido"type="text" name="apellido" autocomplete="off" >   
+                    <input class="form__input" id="apellido" type="text" name="apellido" autocomplete="off" >   
                     <label class="form__label--font-size-grande">Seleccionar fecha del turno: </label>
                     <input class="form__input" type="date" name="calendario"  value="2023-07-22" min="2018-01-01" max="2025-12-31" id= "dia">
                     <label class="form__label--font-size-grande">Hora:</label>
@@ -103,23 +109,24 @@ if (isset($_SESSION['nombre'])) {
                     </select>   
                     <label class="form__label form__label--font-size-grande">Seleccionar empleado: </label>
                     <select class="form__select" name="Id_empleado" id="Id_empleado">
-                        <?php
-                            // Hacer la consulta incluyendo el campo id_empleado
-                            $result = mysqli_query($conexion, 'SELECT id_empleado, Nombre, Apellido FROM empleado');
+                    <?php
+                    /*
+                       // Hacer la consulta incluyendo el campo id_empleado
+                       $result = mysqli_query($conexion, 'SELECT id_empleado, Nombre, Apellido FROM empleado');
 
-                            // Comprobar si la consulta tuvo éxito
-                            if ($result) {
-                            // Recorrer todas las filas del resultado
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                // Crear una opción con el valor del campo id_empleado y el texto del campo Nombre
-                                echo "<option value='" . $row["id_empleado"] . "'>" . $row["Nombre"] . " " . $row["Apellido"] . " " . "</option>";
-                                //echo "<option value='" . $row["id_empleado"] . "'>" . $row["Nombre"] . "</option>";
-                            }
-                            } else {
-                            // Mostrar un mensaje de error
-                            echo "Error al hacer la consulta: " . mysqli_error($conexion);
-                            }
-                        ?>        
+                       // Comprobar si la consulta tuvo éxito
+                       if ($result) {
+                       // Recorrer todas las filas del resultado
+                       while ($row = mysqli_fetch_assoc($result)) {
+                           // Crear una opción con el valor del campo id_empleado y el texto del campo Nombre
+                           echo "<option value='" . $row["id_empleado"] . "'>" . $row["Nombre"] . " " . $row["Apellido"] . " " . "</option>";
+                           //echo "<option value='" . $row["id_empleado"] . "'>" . $row["Nombre"] . "</option>";
+                       }
+                       } else {
+                       // Mostrar un mensaje de error
+                       echo "Error al hacer la consulta: " . mysqli_error($conexion);
+                       } */    
+                    ?>        
                         
                     </select>           
                 </section>
@@ -127,8 +134,7 @@ if (isset($_SESSION['nombre'])) {
                     <input class="form__botones__boton form__botones__boton--enviar" type="submit" value="Generar turno">             
                 </section>
             </form>
-
-            <div class="alerta" id = "alerta">
+            <div class="alerta" id="alerta">
                 <p class="alerta__item" id = "dniMensaje"></p>
                 <p class="alerta__item" id = "nombreMensaje"></p>
                 <p class="alerta__item" id = "apellidoMensaje"></p>
@@ -142,9 +148,12 @@ if (isset($_SESSION['nombre'])) {
         $valor = $_GET['msj'];
         echo "<p class='opcionAlert' style='visibility: hidden' >". $valor . "</p>";
     ?>
-    <script type="text/javascript" src="js/formulario.js"></script>
-    <script type="text/javascript" src="js/toggle-menu.js"></script>
+
+    
+    <script src="js/formulario.js"></script>
+    <script src="js/toggle-menu.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 </html>
 <?php 

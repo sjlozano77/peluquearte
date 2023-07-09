@@ -20,7 +20,7 @@ html {
 
 body {
     position: relative; /*En relación a la ventana modal. ver modal.css*/
-    background-color: var(--gray-scale-n3);
+    background-color: var(--white);
 }
 
 body, main {
@@ -53,4 +53,15 @@ ul {
     padding-left: 0;
 }
 
+body {
+    display: flex;
+    flex-wrap: wrap;
+}
 
+p {
+    margin-bottom: 0;
+}
+
+li {
+    list-style: none;
+}

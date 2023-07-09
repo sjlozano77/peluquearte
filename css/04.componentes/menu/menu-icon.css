@@ -1,26 +1,11 @@
-.menu__icon {
-    margin-right: 20px;
-}
-
-.menu__icon--ver {
-    transform: translateX(-7px);
-}
-
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
     .menu__icon {
-        transform: translateX(235px);
-    }
-    .menu__icon--ver {
-        transform: translateX(calc(235px - 7px));
+        transform: translateX(250px);
     }
 }
 
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1024px) {
     .menu__icon {
-        transform: translateX(0);
-    }
-    .menu__icon--ver {
-        transform: translateX(calc(0px - 7px));
+        transform: translateX(0px);
     }
 }
-

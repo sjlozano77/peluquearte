@@ -1,24 +1,16 @@
 .main {
-    /*display: flex;
-    flex-direction: column;
-    justify-content: flex-start;*/
-    font-size: 1.3rem;
-    background-color: var(--gray-scale-n2);
-    min-height: 100vh;
-    gap: 0;
-    margin-left: 0px;
+    box-sizing: border-box;
     width: 100%;
-    min-height: 100%;
-    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin-top: 50px;
+    padding-top: 10rem;
 }
 
-@media screen and (min-width: 768px){
-    .main {
-        margin-left: 50px;
-    }
-}
-
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1024px) {
     .main {
         margin-left: 350px;
     }

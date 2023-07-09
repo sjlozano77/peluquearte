@@ -1,12 +1,27 @@
 .menu__link {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     color: inherit;
-    display: inline-block;
     width: 100%;
     height: 100%;
-    padding: 1rem .5rem;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 
-.menu__link:hover {
-    background: var(--soft-red);
+.menu__link svg {
+    margin-right: 1.5em;
 }
+
+
+.menu__link:hover {
+    background-color: #444;
+    color: var(--red);
+}
+
+.menu__link:hover > svg {
+    fill: var(--red);
+}
+
+
 
