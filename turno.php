@@ -110,7 +110,7 @@ if (isset($_SESSION['nombre'])) {
                     <label class="form__label form__label--font-size-grande">Seleccionar empleado: </label>
                     <select class="form__select" name="Id_empleado" id="Id_empleado">
                     <?php
-                    /*
+                    
                        // Hacer la consulta incluyendo el campo id_empleado
                        $result = mysqli_query($conexion, 'SELECT id_empleado, Nombre, Apellido FROM empleado');
 
@@ -125,7 +125,7 @@ if (isset($_SESSION['nombre'])) {
                        } else {
                        // Mostrar un mensaje de error
                        echo "Error al hacer la consulta: " . mysqli_error($conexion);
-                       } */    
+                       }    
                     ?>        
                         
                     </select>           
