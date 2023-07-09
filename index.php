@@ -39,7 +39,7 @@
                 <label class="form__label" for="password">Contraseña</label>
                 <input class="form__input" type="password" id="password" name="password" required>
             </div>
-            <div class="form__botones">´
+            <div class="form__botones">
                 <input class="form__botones__boton form__botones__boton--resetear" type="reset" value="Resetear">
                 <input class="form__botones__boton form__botones__boton--enviar" type="submit" value="Iniciar sesión">
             </div>       
