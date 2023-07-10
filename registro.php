@@ -1,3 +1,6 @@
+<?php
+    require("conexion/conectar.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +33,7 @@
 </head>
 <body>
     <main>
-        <form class="form" id="Empleado" action="../../bdd/registrar_usuario.php" method="POST">
+        <form class="form" id="Empleado" action="bdd/registrar_usuario.php" method="post" enctype="multipart/form-data">
             <h1 class="form__titulo">Registrarse</h1>
             <div class="form__datos">
                 <label class="form__label" for="nombre">Nombre</label>
@@ -39,8 +42,27 @@
                 <input class="form__input" type="text" id="apellido" name="apellido" required>
                 <label class="form__label" for="usuario">Usuario</label>
                 <input class="form__input" type="text" id="usuario" name="usuario" required>
+                <label class="form__label" for="dni">Número de documento</label>
+                <input class="form__input" type="number" id="dni" name="dni" required>
                 <label class="form__label" for="password">Contraseña</label>
                 <input class="form__input" type="password" id="password" name="password" required>
+                <label class="form__label" for="foto-perfil">Foto</label>
+                <input class="form__input" type="file" id="foto-perfil" name="}}" required>
+                <select class="form__input" name="nivel" id="nivel">
+                    <?php
+                        $sql = "SELECT Id, Descripcion FROM nivel WHERE Id > 0";
+                        $consulta = mysqli_query($conexion, $sql);
+                       // Comprobar si la consulta tuvo éxito
+                        if ($consulta) {
+                            // Recorrer todas las filas del resultado
+                                while ($row = mysqli_fetch_assoc($consulta)) {
+                                    // Crear una opción con el valor del campo id_empleado y el texto del campo Nombre
+                                    echo "<option value='" . $row["Id"] . "'>" . $row["Descripcion"] . "</option>";
+                                    //echo "<option value='" . $row["id_empleado"] . "'>" . $row["Nombre"] . "</option>";
+                                }
+                        }
+                    ?>
+                </select>
             </div>
             <div class="form__botones">
                 <input class="form__botones__boton form__botones__boton--resetear" type="reset" value="Resetear">

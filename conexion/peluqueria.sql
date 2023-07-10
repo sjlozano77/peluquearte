@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 06-07-2023 a las 22:20:18
--- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.2.34
+-- Servidor: localhost
+-- Tiempo de generación: 09-07-2023 a las 10:53:50
+-- Versión del servidor: 11.0.2-MariaDB-log
+-- Versión de PHP: 8.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ USE `peluqueria`;
 CREATE TABLE `estado` (
   `Id` int(2) NOT NULL,
   `Descripcion` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `estado`
@@ -52,7 +52,7 @@ INSERT INTO `estado` (`Id`, `Descripcion`) VALUES
 CREATE TABLE `nivel` (
   `Id` int(2) NOT NULL,
   `Descripcion` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `nivel`
@@ -78,7 +78,7 @@ CREATE TABLE `reserva` (
   `Id_estado` int(2) NOT NULL,
   `Dni_peluquero` int(11) NOT NULL,
   `Dni_cliente` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -93,8 +93,15 @@ CREATE TABLE `usuario` (
   `Usuario` varchar(30) NOT NULL,
   `Contraseña` varchar(20) NOT NULL,
   `Id_nivel` int(2) NOT NULL,
-  `Ruta` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `Ruta` varchar(400) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`Dni`, `Nombre`, `Apellido`, `Usuario`, `Contraseña`, `Id_nivel`, `Ruta`) VALUES
+(123213123, 'Alex', 'Suprun', 'alex777', '1234', 3, '/srv/http/peluquearte/assets/imagenes/users/alex-suprun-ZHvM3XIOHoE-unsplash.jpg');
 
 --
 -- Índices para tablas volcadas

@@ -6,13 +6,6 @@
 }
 
 
-@media screen and (min-width: 1024px){
-    * {
-        font-size: 20px;
-    }
-}
-
-
 html {
     font-family: 'Roboto', sans-serif;
     height: 100vh;

@@ -1,5 +1,6 @@
 .form__datos {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     padding: 1rem .5rem;
 }

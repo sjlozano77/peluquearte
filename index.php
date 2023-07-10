@@ -47,7 +47,13 @@
         <p class="mensaje">
             ¿No tienes una cuenta?<a class="mensaje__link" href="registro.php"> Puede registrarse aquí</a>
         </p>
+        <?php
+            error_reporting(0);
+            $valor = $_GET['msj'];
+            echo "<p class='opcionAlert' style='visibility: hidden' >". $valor . "</p>";
+        ?>
     </main>
-
+    <script type="text/javascript" src="js/formulario.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

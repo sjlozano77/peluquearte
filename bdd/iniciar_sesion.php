@@ -6,19 +6,26 @@ include("../conexion/conectar.php");
 $usuario = $_POST['usuario'];
 $password = $_POST['password'];
 
-
-$sql_usuario = "SELECT Usuario FROM usuario WHERE Usuario = '$usuario' and contraseña='$password';";
+$sql_usuario = "SELECT Usuario, Id_nivel FROM usuario WHERE Usuario = '$usuario' and Contraseña='$password';";
 
 $consulta_usuario = mysqli_query($conexion, $sql_usuario);
 
 
-if($consulta_usuario) {
+
+if($registro = mysqli_num_rows($consulta_usuario) === 1) {
 	session_start();
-	$_SESSION['nombre']="x";
-	setcookie("USUARIO",$usuario, time()+3600,"/peluquearte/");
-    header("location:../turno.php"); 
+	$_SESSION['usuario']=$usuario;
+	//setcookie("USUARIO",$usuario, time()+3600,"/peluquearte/");
+	$row = mysqli_fetch_row($consulta_usuario);
+	
+	switch ($row[1]) {
+		case 3: header("location:../pages/administradores/mi_perfil.php"); break;
+		case 2: header("location:../pages/operadores/mi_perfil.php"); break;
+		case 1: header("location:../pages/peluqueros/mi_perfil.php"); break;
+	}	
+	 
 } else {
-    header("location:index.html?error=Verifique sus datos");
+	header("location:../index.php?msj=error1");
 }
 
 
