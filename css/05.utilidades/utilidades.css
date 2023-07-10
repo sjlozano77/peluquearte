@@ -1,3 +1,13 @@
 .oculto {
     display: none;
 }
+
+.flex-izquierda {
+    display: flex;
+    align-items: center;
+}
+
+.flex-derecha {
+    display: flex;
+    align-items: center;
+}

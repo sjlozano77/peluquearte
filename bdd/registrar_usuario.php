@@ -11,7 +11,7 @@ $nivel = $_POST['nivel'];
 //imagen
 $nombre_imagen = $_FILES['foto-perfil']['name'];
 
-$carpeta_destino = $_SERVER['DOCUMENT_ROOT'] . "/peluquearte/assets/imagenes/users";
+$carpeta_destino = "../../assets/imagenes/users";
 
 $ruta = $carpeta_destino . "/" . $nombre_imagen;
 

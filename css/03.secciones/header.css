@@ -13,7 +13,4 @@
     color: var(--white);
 }
 
-header .flex-izquierda {
-    display: flex;
-    align-items: center;
-}
+
