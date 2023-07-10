@@ -1,8 +1,0 @@
-C:/xampp/htdocs/peluquearte/foto/2.jpeg<br>/img/perfiles/22.jpeg<br />
-<b>Warning</b>:  rename(2.jpeg,/img/perfiles/22.jpeg): El sistema no puede encontrar la ruta especificada. (code: 3) in <b>C:\xampp\htdocs\peluquearte\bdd\registrar_peluquero.php</b> on line <b>27</b><br />
-<br />
-<b>Notice</b>:  Undefined variable: type in <b>C:\xampp\htdocs\peluquearte\bdd\registrar_peluquero.php</b> on line <b>85</b><br />
-<br />
-<b>Notice</b>:  Undefined variable: size in <b>C:\xampp\htdocs\peluquearte\bdd\registrar_peluquero.php</b> on line <b>89</b><br />
-<br />
-<b>Warning</b>:  readfile(/img/perfiles/22.jpeg): failed to open stream: No such file or directory in <b>C:\xampp\htdocs\peluquearte\bdd\registrar_peluquero.php</b> on line <b>91</b><br />
